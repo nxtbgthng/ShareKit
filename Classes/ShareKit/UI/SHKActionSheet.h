@@ -39,7 +39,9 @@
 
 @property (retain) SHKItem *item;
 
++ (SHKActionSheet *)actionSheetForType:(SHKShareType)type withMoreButton:(BOOL)shouldIncludeMoreButton;
 + (SHKActionSheet *)actionSheetForType:(SHKShareType)type;
++ (SHKActionSheet *)actionSheetForItem:(SHKItem *)i withMoreButton:(BOOL)shouldIncludeMoreButton;
 + (SHKActionSheet *)actionSheetForItem:(SHKItem *)i;
 
 @end

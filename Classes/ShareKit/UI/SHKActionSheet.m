@@ -42,7 +42,7 @@
 	[super dealloc];
 }
 
-+ (SHKActionSheet *)actionSheetForType:(SHKShareType)type
++ (SHKActionSheet *)actionSheetForType:(SHKShareType)type withMoreButton:(BOOL)shouldIncludeMoreButton;
 {
 	SHKActionSheet *as = [[SHKActionSheet alloc] initWithTitle:SHKLocalizedString(@"Share")
 													  delegate:nil
@@ -55,7 +55,7 @@
 	
 	as.sharers = [NSMutableArray arrayWithCapacity:0];
 	NSArray *favoriteSharers = [SHK favoriteSharersForType:type];
-		
+    
 	// Add buttons for each favorite sharer
 	id class;
 	for(NSString *sharerId in favoriteSharers)
@@ -68,8 +68,10 @@
 		}
 	}
 	
-	// Add More button
-	[as addButtonWithTitle:SHKLocalizedString(@"More...")];
+    if (shouldIncludeMoreButton) {
+        // Add More button
+        [as addButtonWithTitle:SHKLocalizedString(@"More...")];        
+    }
 	
 	// Add Cancel button
 	[as addButtonWithTitle:SHKLocalizedString(@"Cancel")];
@@ -78,11 +80,21 @@
 	return [as autorelease];
 }
 
-+ (SHKActionSheet *)actionSheetForItem:(SHKItem *)i
++ (SHKActionSheet *)actionSheetForType:(SHKShareType)type;
 {
-	SHKActionSheet *as = [self actionSheetForType:i.shareType];
+    return [self actionSheetForType:type withMoreButton:YES];
+}
+
++ (SHKActionSheet *)actionSheetForItem:(SHKItem *)i withMoreButton:(BOOL)shouldIncludeMoreButton;
+{
+	SHKActionSheet *as = [self actionSheetForType:i.shareType withMoreButton:shouldIncludeMoreButton];
 	as.item = i;
 	return as;
+}
+
++ (SHKActionSheet *)actionSheetForItem:(SHKItem *)i
+{
+	return [self actionSheetForItem:i withMoreButton:YES];
 }
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated

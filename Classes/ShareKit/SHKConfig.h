@@ -14,8 +14,8 @@
 // App Description
 // These values are used by any service that shows 'shared from XYZ'
 
-#define SHKMyAppName			@"My App Name"
-#define SHKMyAppURL				@"http://example.com"
+#define SHKMyAppName			@"Semperoper Dresden"
+#define SHKMyAppURL				@"http://semperoper.de"
 
 
 
@@ -86,6 +86,11 @@
 #define SHKSharedWithSignature		0
 
 
+// Evernote
+#define SHKEvernoteUserStoreURL     @""
+#define SHKEvernoteNetStoreURLBase  @""
+#define SHKEvernoteConsumerKey      @""
+#define SHKEvernoteSecretKey      @""
 
 /*
  UI Configuration : Basic
@@ -94,7 +99,7 @@
  */
 
 // Toolbars
-#define SHKBarStyle					@"UIBarStyleDefault" // See: http://developer.apple.com/iphone/library/documentation/UIKit/Reference/UIKitDataTypesReference/Reference/reference.html#//apple_ref/c/econst/UIBarStyleDefault
+#define SHKBarStyle					@"UIBarStyleBlack" // See: http://developer.apple.com/iphone/library/documentation/UIKit/Reference/UIKitDataTypesReference/Reference/reference.html#//apple_ref/c/econst/UIBarStyleDefault
 #define SHKBarTintColorRed			-1 // Value between 0-255, set all to -1 for default
 #define SHKBarTintColorGreen		-1 // Value between 0-255, set all to -1 for default
 #define SHKBarTintColorBlue			-1 // Value between 0-255, set all to -1 for default
