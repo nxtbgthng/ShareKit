@@ -33,6 +33,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+void hmac_sha1(const unsigned char *inText, size_t inTextLength, unsigned char* inKey, size_t inKeyLength, unsigned char *outDigest);
+
 void hmac_sha1(const unsigned char *inText, size_t inTextLength, unsigned char* inKey, size_t inKeyLength, unsigned char *outDigest)
 {
 const size_t B = 64;

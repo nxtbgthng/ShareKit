@@ -166,7 +166,7 @@ static CGFloat kBorderWidth = 10;
   CGFloat width = floor(scale_factor * frame.size.width) - kPadding * 2;
   CGFloat height = floor(scale_factor * frame.size.height) - kPadding * 2;
 
-  _orientation = [UIApplication sharedApplication].statusBarOrientation;
+  _orientation = (UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation;
   if (UIInterfaceOrientationIsLandscape(_orientation)) {
     self.frame = CGRectMake(kPadding, kPadding, height, width);
   } else {
@@ -180,7 +180,7 @@ static CGFloat kBorderWidth = 10;
 }
 
 - (void)updateWebOrientation {
-  UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+  UIInterfaceOrientation orientation = (UIInterfaceOrientation)[UIApplication sharedApplication].statusBarOrientation;
   if (UIInterfaceOrientationIsLandscape(orientation)) {
     [_webView stringByEvaluatingJavaScriptFromString:
       @"document.body.setAttribute('orientation', 90);"];
@@ -441,7 +441,7 @@ static CGFloat kBorderWidth = 10;
 // UIDeviceOrientationDidChangeNotification
 
 - (void)deviceOrientationDidChange:(void*)object {
-  UIDeviceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+  UIDeviceOrientation orientation = (UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation;
   if (!_showingKeyboard && [self shouldRotateToOrientation:orientation]) {
     [self updateWebOrientation];
 

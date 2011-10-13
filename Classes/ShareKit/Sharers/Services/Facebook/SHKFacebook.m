@@ -124,12 +124,12 @@
 	if(!SHKFacebookUseSessionProxy){
 		fbSession = [FBSession sessionForApplication:SHKFacebookKey
 												 secret:SHKFacebookSecret
-											   delegate:self];
+											   delegate:(Class<FBSessionDelegate>)self];
 		
 	}else {
 		fbSession = [FBSession sessionForApplication:SHKFacebookKey
 										getSessionProxy:SHKFacebookSessionProxyURL
-											   delegate:self];
+											   delegate:(Class<FBSessionDelegate>)self];
 	}
 
 	[fbSession logout];
