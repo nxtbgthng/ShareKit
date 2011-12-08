@@ -49,14 +49,14 @@
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) 
 	{		
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																							  target:self
-																							  action:@selector(cancel)];
+		self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                               target:self
+                                                                                               action:@selector(cancel)] autorelease];
 		
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:SHKLocalizedString(@"Send to Twitter")
+		self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:SHKLocalizedString(@"Send to Twitter")
 																				  style:UIBarButtonItemStyleDone
 																				 target:self
-																				 action:@selector(save)];
+																				 action:@selector(save)] autorelease];
     }
     return self;
 }
@@ -69,7 +69,7 @@
 	
 	self.view.backgroundColor = [UIColor whiteColor];
 	
-	self.textView = [[UITextView alloc] initWithFrame:self.view.bounds];
+	textView = [[UITextView alloc] initWithFrame:self.view.bounds];
 	textView.delegate = self;
 	textView.font = [UIFont systemFontOfSize:15];
 	textView.contentInset = UIEdgeInsetsMake(5,5,0,0);
@@ -157,7 +157,7 @@
 {
 	if (counter == nil)
 	{
-		self.counter = [[UILabel alloc] initWithFrame:CGRectZero];
+		counter = [[UILabel alloc] initWithFrame:CGRectZero];
 		counter.backgroundColor = [UIColor clearColor];
 		counter.opaque = NO;
 		counter.font = [UIFont boldSystemFontOfSize:14];

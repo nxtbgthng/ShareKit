@@ -77,7 +77,7 @@
 - (void)share
 {	
 	// create sharer
-	self.sharer = [[NSClassFromString(sharerId) alloc] init];
+	sharer = [[NSClassFromString(sharerId) alloc] init];
 	sharer.item = item;
 	sharer.quiet = YES;
 	sharer.shareDelegate = self;

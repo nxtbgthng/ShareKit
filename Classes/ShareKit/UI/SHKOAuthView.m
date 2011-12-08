@@ -51,7 +51,7 @@
 		
 		self.delegate = d;
 		
-		self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+		webView = [[UIWebView alloc] initWithFrame:CGRectZero];
 		webView.delegate = self;
 		webView.scalesPageToFit = YES;
 		webView.dataDetectorTypes = UIDataDetectorTypeNone;
@@ -132,7 +132,7 @@
 {
 	if (spinner == nil)
 	{
-		self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		[self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithCustomView:spinner] autorelease] animated:NO];
 		spinner.hidesWhenStopped = YES;
 		[spinner release];

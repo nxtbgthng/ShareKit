@@ -52,7 +52,7 @@
 {
 	if (textField == nil)
 	{
-		self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,0,25)];
+		textField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,0,25)];
 		textField.clearsOnBeginEditing = NO;
 		textField.returnKeyType = UIReturnKeyDone;
 		textField.font = [UIFont systemFontOfSize:17];
@@ -89,7 +89,7 @@
 	{
 		if (toggle == nil)
 		{
-			self.toggle = [[UISwitch alloc] initWithFrame:CGRectZero];	
+			toggle = [[UISwitch alloc] initWithFrame:CGRectZero];	
 			[self.contentView addSubview:toggle];
 			[self setValue:tmpValue];
 			[toggle release];
